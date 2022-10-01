@@ -1,56 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddToDo from './features/todo/AddToDo';
+import EditTodo from './features/todo/EditTodo';
+import ViewTodo from './features/todo/ViewTodo';
+import Footer from './pages/Footer';
+import Home from './pages/Home';
+import Navbar from './pages/Navbar';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/addtodo' element={<AddToDo></AddToDo>}></Route>
+        <Route path='/viewtodo' element={<ViewTodo></ViewTodo>}></Route>
+        <Route path='/edittodo' element={<EditTodo></EditTodo>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
+      </Routes>
+      <Footer />
+
     </div>
   );
 }
