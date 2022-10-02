@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addTodo } from './todoSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 const AddToDo = () => {
     const [sub, setSub] = useState('');
@@ -12,7 +13,9 @@ const AddToDo = () => {
     //Add New Todo
     const handleAddForm = e => {
         e.preventDefault();
-        const newTodo = { sub, desc };
+        const id = uuidv4()
+        const newTodo = { sub, desc, id };
+        console.log(newTodo)
         dispatch(addTodo(newTodo));
         navigate('/viewtodo');
     };

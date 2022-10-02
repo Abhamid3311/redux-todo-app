@@ -1,8 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteTodo } from './todoSlice';
 
 const ViewTodo = () => {
     const todos = useSelector((state) => state.todos.todos);
+    const dispatch = useDispatch();
+
+    const handleDeleteBtn = id => {
+        dispatch(deleteTodo(id))
+    };
+
     return (
         <div>
             <h2 className='text-center text-3xl text-accent font-bold mt-10'>All Todo List</h2>
@@ -20,16 +27,18 @@ const ViewTodo = () => {
                     <tbody>
                         {
                             todos?.map((todo, index) => {
-                                console.log(todo)
-                                const { sub, desc } = todo;
+                                const { id, sub, desc } = todo;
                                 return (
-                                    <tr>
+                                    <tr key={id}>
                                         <th>{index + 1}</th>
                                         <td>{sub}</td>
                                         <td>{desc}</td>
                                         <td>
-                                            <button className='btn btn-success mr-2'>Edit</button>
-                                            <button className='btn btn-error'>Delete</button>
+                                            <button
+                                                className='btn btn-success mr-2'>
+                                                Edit</button>
+
+                                            <button className='btn btn-error' onClick={() => handleDeleteBtn(id)}>Delete</button>
                                         </td>
                                     </tr>
                                 )
