@@ -17,7 +17,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <Link to={'/'}><a className="btn btn-ghost normal-case text-2xl">Todo App</a></Link>
+                <Link to={'/'}><a className='text-xl lg:text-3xl'>Todo App</a></Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
