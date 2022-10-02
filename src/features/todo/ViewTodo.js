@@ -25,7 +25,7 @@ const ViewTodo = () => {
             <h2 className='text-center text-3xl text-white font-bold mt-20'>Todo List</h2>
 
             <div className="overflow-x-auto mt-5">
-                <table className="table w-4/6 mx-auto">
+                <table className="table w-2/3 lg:w-4/6 mx-auto">
                     <thead>
                         <tr>
                             <th>No.</th>
