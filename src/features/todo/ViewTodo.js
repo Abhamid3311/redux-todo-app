@@ -1,14 +1,24 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import { deleteTodo } from './todoSlice';
 
 const ViewTodo = () => {
     const todos = useSelector((state) => state.todos.todos);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
+    //Delete Btn
     const handleDeleteBtn = id => {
         dispatch(deleteTodo(id))
     };
+
+    //Edit Btn
+    const handleEditBtn = id => {
+        navigate('/edittodo')
+    };
+
+
 
     return (
         <div>
@@ -34,9 +44,12 @@ const ViewTodo = () => {
                                         <td>{sub}</td>
                                         <td>{desc}</td>
                                         <td>
-                                            <button
-                                                className='btn btn-success mr-2'>
-                                                Edit</button>
+                                            <Link to={'/edittodo'} state={{ id, sub, desc }}>
+                                                <button
+                                                    className='btn btn-success mr-2'>
+                                                    Edit
+                                                </button>
+                                            </Link>
 
                                             <button className='btn btn-error' onClick={() => handleDeleteBtn(id)}>Delete</button>
                                         </td>
