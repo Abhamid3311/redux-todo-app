@@ -21,8 +21,8 @@ const AddToDo = () => {
     };
 
     return (
-        <div>
-            <h2 className='text-center text-3xl text-accent font-bold my-10'>Add To Do</h2>
+        <div className='home'>
+            <h2 className='text-center text-3xl text-white font-bold py-10'>Add To Do</h2>
 
             <div className="card w-2/5 mx-auto shadow-2xl bg-base-100">
                 <div className="card-body">

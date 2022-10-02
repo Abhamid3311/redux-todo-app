@@ -1,9 +1,11 @@
 import React from 'react';
+import ViewTodo from '../features/todo/ViewTodo';
 
 const Home = () => {
     return (
-        <div>
-            <h2 className='text-center text-3xl text-accent font-bold mt-10'>Home</h2>
+        <div className='home '>
+            <h2 className='text-center text-4xl text-white font-bold pt-5'>Welcome To My Todo App</h2>
+            <ViewTodo />
         </div>
     );
 };

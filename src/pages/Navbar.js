@@ -4,11 +4,10 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     const menuItems = <>
         <li><Link to={'/'}><a>Home</a></Link></li>
-        <li><Link to={'/viewtodo'}><a>View Todos</a></Link></li>
         <li><Link to={'/addtodo'}><a>Add Todo</a></Link></li>
     </>
     return (
-        <div className="navbar bg-neutral text-neutral-content">
+        <div className="navbar bg-black text-neutral-content px-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -18,9 +17,9 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Todo App</a>
+                <Link to={'/'}><a className="btn btn-ghost normal-case text-2xl">Todo App</a></Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>

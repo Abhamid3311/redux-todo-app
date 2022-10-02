@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { deleteTodo } from './todoSlice';
+import { AiFillDelete } from 'react-icons/ai';
+import { BiEdit } from 'react-icons/bi';
 
 const ViewTodo = () => {
     const todos = useSelector((state) => state.todos.todos);
@@ -18,13 +20,11 @@ const ViewTodo = () => {
         navigate('/edittodo')
     };
 
-
-
     return (
         <div>
-            <h2 className='text-center text-3xl text-accent font-bold mt-10'>All Todo List</h2>
+            <h2 className='text-center text-3xl text-white font-bold mt-20'>Todo List</h2>
 
-            <div className="overflow-x-auto mt-10">
+            <div className="overflow-x-auto mt-5">
                 <table className="table w-4/6 mx-auto">
                     <thead>
                         <tr>
@@ -46,12 +46,14 @@ const ViewTodo = () => {
                                         <td>
                                             <Link to={'/edittodo'} state={{ id, sub, desc }}>
                                                 <button
-                                                    className='btn btn-success mr-2'>
-                                                    Edit
+                                                    className='btn btn-ghost mr-2'>
+                                                    <BiEdit className='text-success text-3xl' />
                                                 </button>
                                             </Link>
 
-                                            <button className='btn btn-error' onClick={() => handleDeleteBtn(id)}>Delete</button>
+                                            <button className='btn btn-ghost' onClick={() => handleDeleteBtn(id)}>
+                                                <AiFillDelete className='text-error text-3xl' />
+                                            </button>
                                         </td>
                                     </tr>
                                 )
